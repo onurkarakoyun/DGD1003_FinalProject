@@ -8,75 +8,93 @@ public class GuardAI : MonoBehaviour
     public Transform leftPoint;
     public Transform rightPoint;
     public Transform player;
-    private Animator anim;
+
+    public Transform visionArea; // VisionArea objesi
+    public Animator anim;
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
     private bool goingRight = true;
     private bool isChasing = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+
+        if (anim == null)
+            anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        Vector2 moveDirection = Vector2.zero;
+
         if (isChasing)
         {
-            ChasePlayer();
+            moveDirection = (player.position - transform.position).normalized;
+            ChasePlayer(moveDirection);
         }
         else
         {
+            moveDirection = goingRight ? Vector2.right : Vector2.left;
             Patrol();
         }
-        anim.SetBool("isChasing", isChasing);
+
+        // ------------------- VisionArea Yönünü Manuel Güncelle -------------------
+        if (visionArea != null)
+        {
+            // FlipX ile değil rotation ile yön veriyoruz
+            float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 90f;
+            visionArea.localRotation = Quaternion.Euler(0, 0, angle);
+        }
+
+        // Animator
+        if (anim != null)
+            anim.SetBool("isChasing", isChasing);
     }
+
     void Patrol()
     {
+        float speed = patrolSpeed;
+
         if (goingRight)
         {
-            rb.linearVelocity = new Vector2(patrolSpeed, rb.linearVelocity.y);
-            sr.flipX = false;
+            rb.linearVelocity = new Vector2(speed, rb.linearVelocity.y);
 
             if (transform.position.x >= rightPoint.position.x)
                 goingRight = false;
-        }
-        else
-        {
-            rb.linearVelocity = new Vector2(-patrolSpeed, rb.linearVelocity.y);
-            sr.flipX = true;
 
-            if (transform.position.x <= leftPoint.position.x)
-                goingRight = true;
-        }
-    }
-    void ChasePlayer()
-    {
-        float direction = player.position.x - transform.position.x;
-
-        if (direction > 0)
-        {
-            rb.linearVelocity = new Vector2(chaseSpeed, rb.linearVelocity.y);
             sr.flipX = false;
         }
         else
         {
-            rb.linearVelocity = new Vector2(-chaseSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(-speed, rb.linearVelocity.y);
+
+            if (transform.position.x <= leftPoint.position.x)
+                goingRight = true;
+
             sr.flipX = true;
         }
     }
+
+    void ChasePlayer(Vector2 direction)
+    {
+        rb.linearVelocity = new Vector2(direction.x * chaseSpeed, rb.linearVelocity.y);
+
+        sr.flipX = direction.x >= 0 ? false : true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             isChasing = true;
-            Debug.Log("Güvenlik seni gördü! KOŞUYOR!");
+            Debug.Log("Guard seni gördü, koşuyor!");
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))

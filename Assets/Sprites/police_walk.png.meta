@@ -400,10 +400,10 @@ TextureImporter:
       name: police_walk_11
       rect:
         serializedVersion: 2
-        x: 932
-        y: 82
-        width: 217
-        height: 320
+        x: 1104
+        y: 383
+        width: 215
+        height: 324
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -422,10 +422,10 @@ TextureImporter:
       name: police_walk_12
       rect:
         serializedVersion: 2
-        x: 1104
-        y: 383
+        x: 1356
+        y: 378
         width: 215
-        height: 324
+        height: 323
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,10 +444,10 @@ TextureImporter:
       name: police_walk_13
       rect:
         serializedVersion: 2
-        x: 1356
-        y: 378
-        width: 215
-        height: 323
+        x: 1607
+        y: 369
+        width: 214
+        height: 319
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -466,10 +466,10 @@ TextureImporter:
       name: police_walk_14
       rect:
         serializedVersion: 2
-        x: 1607
-        y: 369
-        width: 214
-        height: 319
+        x: 925
+        y: 43
+        width: 217
+        height: 320
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
