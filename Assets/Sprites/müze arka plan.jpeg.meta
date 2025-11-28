@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 959c93b3169728647a2fb7f5b108985b
+guid: be734c98a6c9b724e99fa00fe783aa8c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4566190091907096745
-    second: camera_0
-  - first:
-      213: -363897418689088276
-    second: camera_1
-  - first:
-      213: -3497596737771092960
-    second: camera_2
+      213: 6479787429858894097
+    second: "m\xFCze arka plan_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: camera_0
+      name: "m\xFCze arka plan_0"
       rect:
         serializedVersion: 2
-        x: 316
-        y: 756
-        width: 595
-        height: 101
+        x: 0
+        y: 0
+        width: 1600
+        height: 872
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 75f18fadd42a1a0c0800000000000000
-      internalID: -4566190091907096745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camera_1
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 253
-        width: 656
-        height: 406
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ce4fa58c93d23faf0800000000000000
-      internalID: -363897418689088276
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: camera_2
-      rect:
-        serializedVersion: 2
-        x: 1194
-        y: 238
-        width: 664
-        height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 024c69d4c4a067fc0800000000000000
-      internalID: -3497596737771092960
+      spriteID: 111e7c80654dce950800000000000000
+      internalID: 6479787429858894097
       vertices: []
       indices: 
       edges: []
@@ -197,10 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      camera_0: -4566190091907096745
-      camera_1: -363897418689088276
-      camera_2: -3497596737771092960
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
