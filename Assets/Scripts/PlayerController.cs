@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     float moveX;
     bool isGrounded;
+    public bool isHidden = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,6 +21,12 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (isHidden) 
+        {
+            rb.linearVelocity = Vector2.zero; // Hareketi durdur
+            anim.SetFloat("Speed", 0); // Koşma animasyonunu durdur
+            return; // Kodun geri kalanını çalıştırma
+        }
         moveX = Input.GetAxisRaw("Horizontal");
         if (moveX > 0)
         {
@@ -38,6 +45,7 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (isHidden) return;
         rb.linearVelocity = new Vector2(moveX * moveSpeed, rb.linearVelocity.y);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         anim.SetBool("isGrounded", isGrounded);

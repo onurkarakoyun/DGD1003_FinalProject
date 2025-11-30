@@ -30,6 +30,14 @@ public class GuardAI : MonoBehaviour
     void Update()
     {
         Vector2 moveDirection = Vector2.zero;
+        if (isChasing)
+        {
+            if(!player.CompareTag("Player"))
+            {
+                isChasing = false; // Kovalamayı iptal et
+                Debug.Log("Polis izini kaybetti, devriyeye dönüyor.");
+            }
+        }
 
         if (isChasing)
         {
