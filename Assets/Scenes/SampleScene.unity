@@ -845,6 +845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: kolon1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 602133732246286172, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7786243648493985022, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.12
@@ -884,6 +888,10 @@ PrefabInstance:
     - target: {fileID: 7786243648493985022, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821716080896686965, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1328,6 +1336,10 @@ PrefabInstance:
     - target: {fileID: 431161842307907743, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
       propertyPath: m_Name
       value: kolon1
+      objectReference: {fileID: 0}
+    - target: {fileID: 602133732246286172, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7786243648493985022, guid: 550886274c7d7874ba71f3c65cdb65d0, type: 3}
       propertyPath: m_LocalPosition.x
