@@ -5,6 +5,7 @@ public class CharacterSwitcher : MonoBehaviour
 {
     public GameObject Character;
     public GameObject Character2;
+    public CameraFollow cameraScript;
 
     private GameObject currentCharacter;
     private GameObject inactiveCharacter;
@@ -21,6 +22,11 @@ public class CharacterSwitcher : MonoBehaviour
         {
             currentCharacter = Character2;
             inactiveCharacter = Character;
+        }
+        // YENİ: Oyun başlar başlamaz kamera doğru kişiye baksın
+        if(cameraScript != null)
+        {
+            cameraScript.ChangeTarget(currentCharacter.transform);
         }
     }
 
@@ -48,6 +54,10 @@ public class CharacterSwitcher : MonoBehaviour
         GameObject temp = currentCharacter;
         currentCharacter = inactiveCharacter;
         inactiveCharacter = temp;
+        if (cameraScript != null)
+        {
+            cameraScript.ChangeTarget(currentCharacter.transform);
+        }
 
     }
 
