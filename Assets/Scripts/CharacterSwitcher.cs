@@ -6,10 +6,8 @@ public class CharacterSwitcher : MonoBehaviour
     public GameObject Character;
     public GameObject Character2;
     public CameraFollow cameraScript;
-
     private GameObject currentCharacter;
     private GameObject inactiveCharacter;
-
     private bool canSwitch = true;
     void Start()
     {
@@ -23,37 +21,29 @@ public class CharacterSwitcher : MonoBehaviour
             currentCharacter = Character2;
             inactiveCharacter = Character;
         }
-        // YENİ: Oyun başlar başlamaz kamera doğru kişiye baksın
         if(cameraScript != null)
         {
             cameraScript.ChangeTarget(currentCharacter.transform);
         }
     }
-
     [System.Obsolete]
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z) && canSwitch)
         {
-            // YENİ: Önce polis kontrolü yap!
             if (CheckIfChased())
             {
                 Debug.Log("Polis seni kovalarken kılık değiştiremezsin!");
-                return; // Fonksiyonu burada durdur, aşağıya inip karakter değiştirme
+                return;
             }
-
             SwitchCharacter();
             StartCoroutine(SwitchCooldown());
         }
     }
-
     [System.Obsolete]
     bool CheckIfChased()
     {
-        // Sahnedeki "GuardAI" scriptine sahip tüm objeleri bul
         GuardAI[] guards = FindObjectsOfType<GuardAI>();
-
-        // Tek tek hepsine sor: Beni kovalıyor musun?
         foreach (GuardAI guard in guards)
         {
             if (guard.isChasing)
@@ -63,7 +53,6 @@ public class CharacterSwitcher : MonoBehaviour
         }
         return false;
     }
-
     void SwitchCharacter()
     {
         Vector3 lastPosition = currentCharacter.transform.position;
@@ -85,7 +74,6 @@ public class CharacterSwitcher : MonoBehaviour
         }
 
     }
-
     IEnumerator SwitchCooldown()
     {
 
@@ -93,11 +81,4 @@ public class CharacterSwitcher : MonoBehaviour
         yield return new WaitForSeconds(5f);
         canSwitch = true;
     }
-
-
-
-
-
-
-
 }

@@ -7,7 +7,6 @@ public class LaserTrap : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Oyuncu lazere yakalandı!");
-            // Buraya oyuncuyu öldürme, yeniden başlatma vs. ekleyebilirsin
         }
     }
 }

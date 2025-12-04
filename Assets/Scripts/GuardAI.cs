@@ -9,7 +9,7 @@ public class GuardAI : MonoBehaviour
     public Transform rightPoint;
     public Transform player;
 
-    public Transform visionArea; // VisionArea objesi
+    public Transform visionArea;
     public Animator anim;
 
     private Rigidbody2D rb;
@@ -34,7 +34,7 @@ public class GuardAI : MonoBehaviour
         {
             if(!player.CompareTag("Player"))
             {
-                isChasing = false; // Kovalamayı iptal et
+                isChasing = false;
                 Debug.Log("Polis izini kaybetti, devriyeye dönüyor.");
             }
         }
@@ -49,16 +49,11 @@ public class GuardAI : MonoBehaviour
             moveDirection = goingRight ? Vector2.right : Vector2.left;
             Patrol();
         }
-
-        // ------------------- VisionArea Yönünü Manuel Güncelle -------------------
         if (visionArea != null)
         {
-            // FlipX ile değil rotation ile yön veriyoruz
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg - 0f;
             visionArea.localRotation = Quaternion.Euler(0, 0, angle);
         }
-
-        // Animator
         if (anim != null)
             anim.SetBool("isChasing", isChasing);
     }

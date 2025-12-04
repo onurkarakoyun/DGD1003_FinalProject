@@ -23,9 +23,9 @@ public class PlayerController : MonoBehaviour
     {
         if (isHidden) 
         {
-            rb.linearVelocity = Vector2.zero; // Hareketi durdur
-            anim.SetFloat("Speed", 0); // Koşma animasyonunu durdur
-            return; // Kodun geri kalanını çalıştırma
+            rb.linearVelocity = Vector2.zero;
+            anim.SetFloat("Speed", 0);
+            return;
         }
         moveX = Input.GetAxisRaw("Horizontal");
         if (moveX > 0)
